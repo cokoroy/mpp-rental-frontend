@@ -29,6 +29,8 @@ import FacilityManagementPage from './pages/FacilityManagementPage';
 import EventManagementPage from "./pages/EventManagementPage.jsx";
 import BOEventsPage from "./pages/BOEventsPage.jsx";
 import FacilityApprovalPage from './pages/FacilityApprovalPage';
+import BOSupportPage from "./pages/BOSupportPage.jsx";
+import MPPSupportPage from "./pages/MPPSupportPage.jsx";
 
 
 function App() {
@@ -71,6 +73,10 @@ function App() {
                     <Route path="/mpp/events" element={<EventManagementPage />} />
 
                     <Route path="/mpp/approvals" element={<FacilityApprovalPage />} />
+
+                    <Route path="/support" element={<BOSupportPage />} />
+
+                    <Route path="/mpp/support" element={<MPPSupportPage />} />
 
 
                     {/* MPP User Management Routes */}
