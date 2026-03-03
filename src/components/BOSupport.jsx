@@ -199,6 +199,19 @@ function TicketDetailView({ ticketId, onBack, onDeleted }) {
 
     useEffect(() => { fetchTicket(); }, [fetchTicket]);
 
+    // Auto-poll for new responses every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const data = await supportService.getMyTicketById(ticketId);
+                setTicket(data);
+            } catch {
+                // silently ignore polling errors
+            }
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [ticketId]);
+
     const handleSendReply = async () => {
         if (!replyMessage.trim()) return;
         setSending(true);
